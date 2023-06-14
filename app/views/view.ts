@@ -1,6 +1,6 @@
 import { Negociacoes } from "../models/negociacoes";
 
-export class View<T> {
+export abstract class View<T> {
   protected elemento: HTMLElement;
 
   constructor(seletor: string) {
@@ -11,7 +11,5 @@ export class View<T> {
     this.elemento.innerHTML = this.template(model);
   }
 
-  template(model: T): string {
-    throw Error("É necessário implementar o método template");
-  }
+  abstract template(model: T): string;
 }
